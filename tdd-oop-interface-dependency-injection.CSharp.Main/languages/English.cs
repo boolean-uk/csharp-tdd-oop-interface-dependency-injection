@@ -3,14 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TddOopInternal.InterfaceDependencyInjection.CSharp.Main.Interfaces;
 
-namespace tdd_oop_interface_dependency_injection.CSharp.Main
+namespace languages
 {
-    public class Alphabet 
+    public class English : Language
     {
-        public Dictionary<Char, int> getLetterScores()
+        public string Name { get; set; }
+
+        public int Caclcualte(string word)
         {
-            Dictionary<Char, int> words = new Dictionary<Char, int>();
+            int result = 0;
+            foreach (char c in word)
+            {
+                if (getLetterScores().ContainsKey(c))
+                {
+                    result += getLetterScores()[c];
+                }
+            }
+            return result;
+        }
+
+        public Dictionary<char, int> getLetterScores()
+        {
+            Dictionary<char, int> words = new Dictionary<char, int>();
             words.Add('a', 1);
             words.Add('b', 3);
             words.Add('c', 3);
