@@ -3,41 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_internal_interface_dependency_injection.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class Alphabet : AlphabetInterface
     {
-        public Dictionary<Char, int> getLetterScores()
+        public Dictionary<string,int> fillAlphabet(string language)
         {
-            Dictionary<Char, int> words = new Dictionary<Char, int>();
-            words.Add('a', 1);
-            words.Add('b', 3);
-            words.Add('c', 3);
-            words.Add('d', 2);
-            words.Add('e', 1);
-            words.Add('f', 4);
-            words.Add('g', 2);
-            words.Add('h', 4);
-            words.Add('i', 1);
-            words.Add('j', 8);
-            words.Add('k', 5);
-            words.Add('l', 1);
-            words.Add('m', 3);
-            words.Add('n', 1);
-            words.Add('o', 1);
-            words.Add('p', 3);
-            words.Add('q', 10);
-            words.Add('r', 1);
-            words.Add('s', 1);
-            words.Add('t', 1);
-            words.Add('u', 1);
-            words.Add('v', 4);
-            words.Add('w', 4);
-            words.Add('x', 8);
-            words.Add('y', 4);
-            words.Add('z', 10);
-            return words;
+            Dictionary<string, int> alphabet = new Dictionary<string, int>();
+            if (language.Equals("Greek"))
+            {
+                alphabet.Add("αειοφξ", 1);
+                alphabet.Add("βδπ", 2);
+                alphabet.Add("γηντ", 3);
+                alphabet.Add("ζκρψλ", 4);
+                alphabet.Add("θχ", 5);
+                alphabet.Add("μσ", 8);
+                alphabet.Add("υω", 10);
+            }
+            if (language.Equals("Russian"))
+            {
+                alphabet.Add("абвгд", 1);
+                alphabet.Add("еёжзи", 2);
+                alphabet.Add("йклмн", 3);
+                alphabet.Add("опрстуф", 4);
+                alphabet.Add("хцчш", 5);
+                alphabet.Add("щъы", 8);
+                alphabet.Add("ьэю", 10);
+            }
+            if (language.Equals("English"))
+            {
+                alphabet.Add("aeilnostru", 1);
+                alphabet.Add("dg", 2);
+                alphabet.Add("bcmp", 3);
+                alphabet.Add("fhvwy", 4);
+                alphabet.Add("k", 5);
+                alphabet.Add("jx", 8);
+                alphabet.Add("qz", 10);
+            }
+            return alphabet;
         }
+
     }
 }
