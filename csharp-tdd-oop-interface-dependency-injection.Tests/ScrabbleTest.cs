@@ -46,13 +46,13 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         [Test]
         public void shouldScoreRussianLetters() {
             Scrabble scrabble = new Scrabble(new Russian());
-            Assert.AreEqual(18, scrabble.score("дврфъ"));
+            Assert.AreEqual(17, scrabble.score("ягода"));
         }
 
         [Test]
         public void shouldScoreGreekLetters() {
             Scrabble scrabble = new Scrabble(new Greek());
-            Assert.AreEqual(20, scrabble.score("φεψωλ"));
+            Assert.AreEqual(14, scrabble.score("τέχνη"));
         }
     }
 }
