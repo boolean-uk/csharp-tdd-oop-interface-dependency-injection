@@ -3,28 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_internal_interface_dependency_injection.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Scrabble {
-        private Dictionary<Char, int> letterScores;
+    public class Scrabble : Score{
+        public Dictionary<string, int> letterScores { get; set; }
+        public Alphabet alphabet { get; set; }
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        public Scrabble(Alphabet a, string language) {
+            alphabet = a;
+            this.letterScores = a.fillAlphabet(language);
         }
 
         public int score(String word) {
-            int total = 0;
-
-            foreach (char ch in word.ToCharArray()) {
-                if (this.letterScores.ContainsKey(ch)) {
-                    int score = this.letterScores[ch];
-                    total += score;
+            int score = 0;
+            foreach (KeyValuePair<string, int> pair in letterScores)
+            {
+                for (int i = 0; i < word.Length; i++)
+                {
+                    if (pair.Key.Contains(word[i]))
+                    {
+                        score += pair.Value;
+                    }
                 }
             }
-
-            return total;
+            return score;
         }
     }
 }
