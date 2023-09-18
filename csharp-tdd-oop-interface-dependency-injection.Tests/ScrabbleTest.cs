@@ -3,55 +3,71 @@ using tdd_oop_interface_dependency_injection.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Test
 {
-
-        [TestFixture]
-        public class ScrabbleTest {
+    [TestFixture]
+    public class ScrabbleTest
+    {
         [Test]
-        public void shouldGive0ForEmptyWords() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(0, scrabble.score(""));
+        public void ShouldGive0ForEmptyWords()
+        {
+            IAlphabet alphabet = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
+            Assert.AreEqual(0, scrabble.Score(""));
         }
 
         [Test]
-        public void shouldGive0ForWhiteSpace() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(0, scrabble.score("\n\r\t\b\f"));
+        public void ShouldGive0ForWhiteSpace()
+        {
+            IAlphabet alphabet = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
+            Assert.AreEqual(0, scrabble.Score("\n\r\t\b\f"));
         }
 
         [Test]
-        public void shouldScore1ForA() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(1, scrabble.score("a"));
+        public void ShouldScore1ForA()
+        {
+            IAlphabet alphabet = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
+            Assert.AreEqual(1, scrabble.Score("a"));
         }
 
         [Test]
-        public void shouldScore4ForF() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(4, scrabble.score("f"));
+        public void ShouldScore4ForF()
+        {
+            IAlphabet alphabet = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
+            Assert.AreEqual(4, scrabble.Score("f"));
         }
 
         [Test]
-        public void shouldScore6ForStreet() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(6, scrabble.score("street"));
+        public void ShouldScore6ForStreet()
+        {
+            IAlphabet alphabet = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
+            Assert.AreEqual(6, scrabble.Score("street"));
         }
 
         [Test]
-        public void shouldScore22ForQuirky() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(22, scrabble.score("quirky"));
+        public void ShouldScore22ForQuirky()
+        {
+            IAlphabet alphabet = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
+            Assert.AreEqual(22, scrabble.Score("quirky"));
         }
 
         [Test]
-        public void shouldScoreRussianLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(18, scrabble.score("дврфъ"));
+        public void ShouldScoreRussianLetters()
+        {            
+            IAlphabet russianAlphabet = new RussianAlphabet(); 
+            Scrabble scrabble = new Scrabble(russianAlphabet); 
+            Assert.AreEqual(18, scrabble.Score("дврфъ"));
         }
 
         [Test]
-        public void shouldScoreGreekLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.AreEqual(20, scrabble.score("φεψωλ"));
+        public void shouldScoreGreekLetters()
+        {
+            IAlphabet greekAlphabet = new GreekAlphabet(); 
+            Scrabble scrabble = new Scrabble(greekAlphabet); 
+            Assert.AreEqual(20, scrabble.Score("φεψωλ"));
         }
     }
 }
