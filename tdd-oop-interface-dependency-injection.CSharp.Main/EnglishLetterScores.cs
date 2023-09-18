@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class EnglishLetterScores 
+    public class EnglishLetterScores : IScoreOfTheLetters
     {
-        public Dictionary<Char, int> getLetterScores()
+        public Dictionary<char, int> GetLetterScores()
         {
             Dictionary<Char, int> words = new Dictionary<Char, int>();
             words.Add('a', 1);
