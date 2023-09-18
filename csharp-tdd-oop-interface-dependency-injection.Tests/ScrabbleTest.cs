@@ -34,6 +34,30 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         }
 
         [Test]
+        public void shouldScoreBeCaseInsensitively()
+        {
+            Assert.AreEqual(scrabbles["English"].score("A"), scrabbles["English"].score("a"));
+        }
+
+        [Test]
+        public void shouldIgnoreNonAlphabetCharacters()
+        {
+            Assert.AreEqual(1, scrabbles["English"].score("a1sdfsd!"));
+        }
+
+        [Test]
+        public void shouldIgnoreNonExistentLetter()
+        {
+            Assert.AreEqual(0, scrabbles["English"].score("å"));
+        }
+
+        [Test]
+        public void shouldHandleNullInput() //not for empty string, but for aa null value 
+        {
+            Assert.AreEqual(0, scrabbles["English"].score(null));
+        }
+
+        [Test]
         public void shouldScore1ForA()
         {
             Assert.AreEqual(1, scrabbles["English"].score("a"));
