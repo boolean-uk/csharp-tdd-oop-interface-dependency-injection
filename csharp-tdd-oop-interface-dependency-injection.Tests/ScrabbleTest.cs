@@ -42,7 +42,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         [Test]
         public void shouldIgnoreNonAlphabetCharacters()
         {
-            Assert.AreEqual(1, scrabbles["English"].score("a1sdfsd!"));
+            Assert.AreEqual(11, scrabbles["English"].score("a1sdfsd!"));
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         }
 
         [Test]
-        public void shouldHandleNullInput() //not for empty string, but for aa null value 
+        public void shouldHandleNullInput() //not for empty string, but for aa null valu 
         {
             Assert.AreEqual(0, scrabbles["English"].score(null));
         }
