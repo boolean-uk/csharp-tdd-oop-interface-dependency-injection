@@ -106,9 +106,9 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         }
 
         [Test]
-        public void shouldScore4ForGreekDelta()
+        public void shouldScore4ForGreekZeta()
         {
-            Assert.AreEqual(4, scrabbles["Greek"].score("δ"));
+            Assert.AreEqual(4, scrabbles["Greek"].score("ζ"));
         }
 
         [Test]
