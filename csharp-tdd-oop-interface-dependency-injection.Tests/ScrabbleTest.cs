@@ -14,7 +14,9 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         {
             scrabbles = new Dictionary<string, Scrabble>
             {
-                {"English", new Scrabble(new EnglishLetterScores())}
+                {"English", new Scrabble(new EnglishLetterScores())},
+                {"Russian", new Scrabble(new RussianLetterScores())},
+                {"Greek", new Scrabble(new GreekLetterScores())}
             };
         }
 
@@ -53,13 +55,13 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
             [Test]
             public void shouldScoreRussianLetters() {
-                Assert.AreEqual(18, scrabbles["English"].score("дврфъ"));
+                Assert.AreEqual(18, scrabbles["Russian"].score("дврфъ"));
 
             }
 
             [Test]
             public void shouldScoreGreekLetters() {
-                Assert.AreEqual(20, scrabbles["English"].score("φεψω"));
+                Assert.AreEqual(16, scrabbles["Greek"].score("φεψω"));
 
 
             }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using tdd_oop_interface_dependency_injection.CSharp.Main;
 
-namespace tdd_oop_internal_interface_dependency_injection.CSharp.Main
+namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
     public class GreekLetterScores : IScoreOfTheLetters
     {
