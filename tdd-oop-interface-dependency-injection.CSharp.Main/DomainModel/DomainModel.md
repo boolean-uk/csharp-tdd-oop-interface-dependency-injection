@@ -6,9 +6,9 @@ Scrabble              | letterScores Dictionary                        | score  
 ==============================================================================================================================================================
 IScoreOfTheLetters    |                                                | GetLetterScores          | Dictionary characters and scores
 ==============================================================================================================================================================
-EnglishLetterScores   | inherit from IScoreOfTheLetterrs               | GetLetterScores          | Dictionary English characters and scores
+EnglishLetterScores   | implements from IScoreOfTheLetterrs            | GetLetterScores          | Dictionary English characters and scores
 ==============================================================================================================================================================
-RussianLetterScores   | inherit from IScoreOfTheLetters                | GetLetterScores          | Dictionary Russian characters and scores
+RussianLetterScores   | implements from IScoreOfTheLetters             | GetLetterScores          | Dictionary Russian characters and scores
 ==============================================================================================================================================================
-GreekLetterScores     | inherit from IScoreOfTheLetters                | GetLetterScores          | Dictionary Greek characters and scores
+GreekLetterScores     | implements from IScoreOfTheLetters             | GetLetterScores          | Dictionary Greek characters and scores
 ==============================================================================================================================================================
