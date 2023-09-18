@@ -20,7 +20,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
         [Test]
         public void shouldScore1ForA() {
-            Scrabble scrabble = new Scrabble();
+            Scrabble scrabble = new Scrabble(new EnglishLetterScores());
             Assert.AreEqual(1, scrabble.score("a"));
         }
 
