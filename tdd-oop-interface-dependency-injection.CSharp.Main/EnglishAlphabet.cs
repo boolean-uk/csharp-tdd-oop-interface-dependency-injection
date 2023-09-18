@@ -1,16 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class EnglishAlphabet : IAlphabet
     {
-        public Dictionary<Char, int> getLetterScores()
+        public Dictionary<Char, int> GetLetterScores()
         {
+
             Dictionary<Char, int> words = new Dictionary<Char, int>();
+
             words.Add('a', 1);
             words.Add('b', 3);
             words.Add('c', 3);
@@ -37,7 +39,9 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             words.Add('x', 8);
             words.Add('y', 4);
             words.Add('z', 10);
+
             return words;
+
         }
     }
 }
