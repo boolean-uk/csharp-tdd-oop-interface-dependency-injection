@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_interface_dependency_injection.CSharp.Main;
+
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class EnglishLetterScores : IScoreOfTheLetters
     {
-        public Dictionary<Char, int> getLetterScores()
+        public Dictionary<char, int> GetLetterScores()
         {
             Dictionary<Char, int> words = new Dictionary<Char, int>();
             words.Add('a', 1);
