@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tdd_oop_interface_dependency_injection.CSharp.Main
+﻿namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Scrabble {
-        private Dictionary<Char, int> letterScores;
+    public class Scrabble
+    {
+        private Dictionary<char , int> _letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        public Scrabble(IAlphabet alphabet)
+        {
+            _letterScores = alphabet.getLetterScores();
         }
 
-        public int score(String word) {
+        public int Score(string word)
+        {
             int total = 0;
 
-            foreach (char ch in word.ToCharArray()) {
-                if (this.letterScores.ContainsKey(ch)) {
-                    int score = this.letterScores[ch];
+            foreach(char ch in word.ToCharArray())
+            {
+                if(_letterScores.ContainsKey(ch))
+                {
+                    int score = _letterScores[ch];
                     total += score;
                 }
             }
@@ -27,4 +25,5 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             return total;
         }
     }
+
 }
