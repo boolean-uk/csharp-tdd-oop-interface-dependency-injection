@@ -8,10 +8,10 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
     public class Scrabble {
         private Dictionary<Char, int> letterScores;
-
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        private IAlphabet ialphabet;
+        public Scrabble(IAlphabet alphabet) {
+            ialphabet = alphabet;
+            this.letterScores = ialphabet.getLetterScores();
         }
 
         public int score(String word) {
