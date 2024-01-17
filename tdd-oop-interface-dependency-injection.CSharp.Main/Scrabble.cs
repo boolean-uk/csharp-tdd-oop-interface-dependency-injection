@@ -9,9 +9,23 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
     public class Scrabble {
         private Dictionary<Char, int> letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        public Scrabble(string language) {
+            if(language.Equals("english") )
+            {
+                IAlphabet english = new EnglishAlphabet();
+                this.letterScores = english.getLetterScores();
+            } else if(language.Equals("russian"))
+            {
+                IAlphabet russian = new RussianAlphabet();
+                this.letterScores = russian.getLetterScores();
+
+            } else if (language.Equals("greek"))
+            {
+                IAlphabet greek = new GreekAlphabet();
+                this.letterScores = greek.getLetterScores();
+            } else { throw new Exception("Wrong language input"); }
+            
+
         }
 
         public int score(String word) {
