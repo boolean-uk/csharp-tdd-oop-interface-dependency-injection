@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public interface IAlphabet
+    {
+        Dictionary<Char, int> getLetterScores();
+    }
+    public class EnglishAlphabet : IAlphabet
     {
         public Dictionary<Char, int> getLetterScores()
         {
@@ -37,6 +41,36 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             words.Add('x', 8);
             words.Add('y', 4);
             words.Add('z', 10);
+            return words;
+        }
+    }
+
+    public class RussianAlphabet : IAlphabet
+    {
+        public Dictionary<Char, int> getLetterScores()
+        {
+            Dictionary<Char, int> words = new Dictionary<Char, int>();
+            words.Add('д', 1);
+            words.Add('в', 1);
+            words.Add('р', 4);
+            words.Add('ф', 4);
+            words.Add('ъ', 8);
+
+            return words;
+        }
+    }
+
+    public class GreekAlphabet : IAlphabet
+    {
+        public Dictionary<Char, int> getLetterScores()
+        {
+            Dictionary<Char, int> words = new Dictionary<Char, int>();
+            words.Add('φ', 1);
+            words.Add('ε', 1);
+            words.Add('ψ', 4);
+            words.Add('ω', 10);
+            words.Add('λ', 4);
+
             return words;
         }
     }
