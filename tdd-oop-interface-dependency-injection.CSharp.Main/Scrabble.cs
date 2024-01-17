@@ -14,6 +14,10 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             this.letterScores = a.getLetterScores();
         }
 
+        
+
+        
+
         public int score(String word) {
             int total = 0;
 
