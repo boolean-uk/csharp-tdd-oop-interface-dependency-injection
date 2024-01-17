@@ -6,37 +6,55 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public interface IAlphabet
     {
-        public Dictionary<Char, int> getLetterScores()
+        Dictionary<char, int> GetLetterScores();
+    }
+
+    public class Alphabet : IAlphabet
+    {
+        public Dictionary<char, int> GetLetterScores()
         {
-            Dictionary<Char, int> words = new Dictionary<Char, int>();
-            words.Add('a', 1);
-            words.Add('b', 3);
-            words.Add('c', 3);
-            words.Add('d', 2);
-            words.Add('e', 1);
-            words.Add('f', 4);
-            words.Add('g', 2);
-            words.Add('h', 4);
-            words.Add('i', 1);
-            words.Add('j', 8);
-            words.Add('k', 5);
-            words.Add('l', 1);
-            words.Add('m', 3);
-            words.Add('n', 1);
-            words.Add('o', 1);
-            words.Add('p', 3);
-            words.Add('q', 10);
-            words.Add('r', 1);
-            words.Add('s', 1);
-            words.Add('t', 1);
-            words.Add('u', 1);
-            words.Add('v', 4);
-            words.Add('w', 4);
-            words.Add('x', 8);
-            words.Add('y', 4);
-            words.Add('z', 10);
+            Dictionary<char, int> words = new Dictionary<char, int>
+            {
+                { 'a', 1 },
+                { 'b', 3 },
+                { 'c', 3 },
+                { 'd', 2 },
+                { 'e', 1 },
+                { 'f', 4 },
+                { 'g', 2 },
+                { 'h', 4 },
+                { 'i', 1 },
+                { 'j', 8 },
+                { 'k', 5 },
+                { 'l', 1 },
+                { 'm', 3 },
+                { 'n', 1 },
+                { 'o', 1 },
+                { 'p', 3 },
+                { 'q', 10 },
+                { 'r', 1 },
+                { 's', 1 },
+                { 't', 1 },
+                { 'u', 1 },
+                { 'v', 4 },
+                { 'w', 4 },
+                { 'x', 8 },
+                { 'y', 4 },
+                { 'z', 10 },
+                { 'д', 5 }, // Russian letter 'д' with score 5
+                { 'ф', 8 }, // Russian letter 'ф' with score 8
+                { 'р', 4}, //Russian letter 'р' with score 4
+                { 'в', 1 }, //Russian letter 'в' with score 1
+                { 'ε', 1 }, // Greek letter 'ε' with score 2
+                { 'ψ', 4 }, // Greek letter 'ψ' with score 10
+                { 'φ', 1 }, // Greek letter 'φ' with score 8
+                { 'ω', 10 }, // Greek letter 'ω' with score 9
+                { 'λ', 4 }, //Greek letter 'λ' with score 4
+            };
+
+            // greek φεψωλ
             return words;
         }
     }
