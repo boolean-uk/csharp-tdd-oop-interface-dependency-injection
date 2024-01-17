@@ -10,11 +10,11 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
         
         private IAlphabet alphabet;
        
-
         public Scrabble(IAlphabet alphabet) {
             this.alphabet = alphabet;
         }
 
+        // sligtly rewritten to work with the interface, the logic stays the same
         public int score(string word) {
             int wordScore = 0;
             foreach (char character in word) {
