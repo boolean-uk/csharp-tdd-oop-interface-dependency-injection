@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public interface IAlphabet
+    {
+        public Dictionary<Char, int> getLetterScores();
+    }
+
+    public class EnglishAlphabet : IAlphabet 
     {
         public Dictionary<Char, int> getLetterScores()
         {
@@ -37,6 +42,82 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             words.Add('x', 8);
             words.Add('y', 4);
             words.Add('z', 10);
+            return words;
+        }
+    }
+
+    public class RussianAlphabet : IAlphabet
+    {
+        public Dictionary<Char, int> getLetterScores()
+        {
+            Dictionary<Char, int> words = new Dictionary<Char, int>();
+            words.Add('а', 1);
+            words.Add('б', 1);
+            words.Add('в', 1);
+            words.Add('г', 1);
+            words.Add('д', 1);
+            words.Add('е', 2);
+            words.Add('ё', 2);
+            words.Add('ж', 2);
+            words.Add('з', 2);
+            words.Add('и', 2);
+            words.Add('й', 3);
+            words.Add('к', 3);
+            words.Add('л', 3);
+            words.Add('м', 3);
+            words.Add('н', 3);
+            words.Add('о', 4);
+            words.Add('п', 4);
+            words.Add('р', 4);
+            words.Add('с', 4);
+            words.Add('т', 4);
+            words.Add('у', 4);
+            words.Add('ф', 4);
+            words.Add('х', 5);
+            words.Add('ц', 5);
+            words.Add('ч', 5);
+            words.Add('ш', 5);
+            words.Add('щ', 8);
+            words.Add('ъ', 8);
+            words.Add('ы', 8);
+            words.Add('ь', 10);
+            words.Add('э', 10);
+            words.Add('ю', 10);
+
+            return words;
+        }
+    }
+
+    public class GreekAlphabet : IAlphabet
+    {
+        public Dictionary<Char, int> getLetterScores()
+        {
+            Dictionary<Char, int> words = new Dictionary<Char, int>();
+            words.Add('α', 1);
+            words.Add('ε', 1);
+            words.Add('ι', 1);
+            words.Add('ο', 1);
+            words.Add('φ', 1);
+            words.Add('ξ', 1);
+            words.Add('β', 2);
+            words.Add('δ', 2);
+            words.Add('π', 2);
+            words.Add('γ', 3);
+            words.Add('η', 3);
+            words.Add('ν', 3);
+            words.Add('τ', 3);
+            words.Add('ζ', 4);
+            words.Add('κ', 4);
+            words.Add('ρ', 4);
+            words.Add('ψ', 4);
+            words.Add('λ', 4);
+            words.Add('θ', 5);
+            words.Add('χ', 5);
+            words.Add('μ', 8);
+            words.Add('σ', 8);
+            words.Add('υ', 10);
+            words.Add('ω', 10);
+          
             return words;
         }
     }
