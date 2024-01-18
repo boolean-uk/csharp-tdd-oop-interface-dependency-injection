@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
     public class Scrabble {
-        private Dictionary<Char, int> letterScores;
+        private Dictionary<Char, int> _letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        public Scrabble(IAlphabet alphabet) {
+
+            _letterScores = alphabet.getLetterScores();
         }
 
         public int score(String word) {
             int total = 0;
 
             foreach (char ch in word.ToCharArray()) {
-                if (this.letterScores.ContainsKey(ch)) {
-                    int score = this.letterScores[ch];
+                if (_letterScores.ContainsKey(ch)) {
+                    int score = _letterScores[ch];
                     total += score;
                 }
             }

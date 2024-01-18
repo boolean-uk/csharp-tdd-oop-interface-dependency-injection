@@ -8,50 +8,58 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         public class ScrabbleTest {
         [Test]
         public void shouldGive0ForEmptyWords() {
-            Scrabble scrabble = new Scrabble();
+            CommonAlphabet alphabet = new CommonAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
             Assert.That(0, Is.EqualTo(scrabble.score("")));
         }
 
         [Test]
         public void shouldGive0ForWhiteSpace() {
-            Scrabble scrabble = new Scrabble();
+            CommonAlphabet alphabet = new CommonAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
             Assert.That(0, Is.EqualTo(scrabble.score("\n\r\t\b\f")));
         }
 
         [Test]
         public void shouldScore1ForA() {
-            Scrabble scrabble = new Scrabble();
+            CommonAlphabet alphabet = new CommonAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
             Assert.That(1, Is.EqualTo(scrabble.score("a")));
         }
 
         [Test]
         public void shouldScore4ForF() {
-            Scrabble scrabble = new Scrabble();
+            CommonAlphabet alphabet = new CommonAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
             Assert.That(4, Is.EqualTo(scrabble.score("f")));
         }
 
         [Test]
         public void shouldScore6ForStreet() {
-            Scrabble scrabble = new Scrabble();
+            CommonAlphabet alphabet = new CommonAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
             Assert.That(6, Is.EqualTo(scrabble.score("street")));
         }
 
         [Test]
         public void shouldScore22ForQuirky() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(22, Is.EqualTo(scrabble.score("quirky")));
+            CommonAlphabet alphabet = new CommonAlphabet();
+            Scrabble scrabble = new Scrabble(alphabet);
+            Assert.That(scrabble.score("quirky"), Is.EqualTo(22));
         }
 
         [Test]
         public void shouldScoreRussianLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(18, Is.EqualTo(scrabble.score("дврфъ")));
+            CryllicAlphabet cryllicAlphabet = new CryllicAlphabet();
+            Scrabble scrabble = new Scrabble(cryllicAlphabet);
+            Assert.That(scrabble.score("дврфъ"), Is.EqualTo(18));
         }
 
         [Test]
         public void shouldScoreGreekLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(20, Is.EqualTo(scrabble.score("φεψωλ")));
+            GreekAlphabet greekAlphabet = new GreekAlphabet();
+            Scrabble scrabble = new Scrabble(greekAlphabet);
+            Assert.That(scrabble.score("φεψωλ"), Is.EqualTo(20));
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class CommonAlphabet : IAlphabet
     {
         public Dictionary<Char, int> getLetterScores()
         {
@@ -37,6 +37,40 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             words.Add('x', 8);
             words.Add('y', 4);
             words.Add('z', 10);
+            return words;
+        }
+    }
+    public class GreekAlphabet : IAlphabet
+    {
+        public Dictionary<Char, int> getLetterScores()
+        {
+            Dictionary<Char, int> words = new Dictionary<Char, int>()
+            {
+            { 'α', 1 }, { 'ε', 1 }, { 'ι', 1 }, { 'ο', 1 }, { 'φ', 1 }, { 'ξ', 1 },
+            { 'β', 2 }, { 'δ', 2 }, { 'π', 2 },
+            { 'γ', 3 }, { 'η', 3 }, { 'ν', 3 }, { 'τ', 3 },
+            { 'ζ', 4 }, { 'κ', 4 }, { 'ρ', 4 }, { 'ψ', 4 }, { 'λ', 4 },
+            { 'θ', 5 }, { 'χ', 5 },
+            { 'μ', 8 }, { 'σ', 8 },
+            { 'υ', 10 }, { 'ω', 10 }
+            };
+            return words;
+        }
+    }
+    public class CryllicAlphabet : IAlphabet
+    {
+        public Dictionary<Char, int> getLetterScores()
+        {
+            Dictionary<Char, int> words = new Dictionary<Char, int>()
+            {
+            { 'а', 1 }, { 'б', 1 }, { 'в', 1 }, { 'г', 1 }, { 'д', 1 },
+            { 'е', 2 }, { 'ё', 2 }, { 'ж', 2 }, { 'з', 2 }, { 'и', 2 },
+            { 'й', 3 }, { 'к', 3 }, { 'л', 3 }, { 'м', 3 }, { 'н', 3 },
+            { 'о', 4 }, { 'п', 4 }, { 'р', 4 }, { 'с', 4 }, { 'т', 4 }, { 'у', 4 }, { 'ф', 4 },
+            { 'х', 5 }, { 'ц', 5 }, { 'ч', 5 }, { 'ш', 5 },
+            { 'щ', 8 }, { 'ъ', 8 }, { 'ы', 8 },
+            { 'ь', 10 }, { 'э', 10 }, { 'ю', 10 }
+            };
             return words;
         }
     }
