@@ -7,51 +7,60 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         [TestFixture]
         public class ScrabbleTest {
         [Test]
-        public void shouldGive0ForEmptyWords() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(0, Is.EqualTo(scrabble.score("")));
+        public void shouldGive0ForEmptyWords() 
+        {
+            ILetterScoresProvider letterScoresProvider = new GreekLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(0, Is.EqualTo(scrabble.Score("")));
         }
 
         [Test]
         public void shouldGive0ForWhiteSpace() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(0, Is.EqualTo(scrabble.score("\n\r\t\b\f")));
+            ILetterScoresProvider letterScoresProvider = new EnglishLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(0, Is.EqualTo(scrabble.Score("\n\r\t\b\f")));
         }
 
         [Test]
         public void shouldScore1ForA() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(1, Is.EqualTo(scrabble.score("a")));
+            ILetterScoresProvider letterScoresProvider = new EnglishLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(1, Is.EqualTo(scrabble.Score("a")));
         }
 
         [Test]
         public void shouldScore4ForF() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(4, Is.EqualTo(scrabble.score("f")));
+            ILetterScoresProvider letterScoresProvider = new EnglishLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(4, Is.EqualTo(scrabble.Score("f")));
         }
 
         [Test]
         public void shouldScore6ForStreet() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(6, Is.EqualTo(scrabble.score("street")));
+            ILetterScoresProvider letterScoresProvider = new EnglishLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(6, Is.EqualTo(scrabble.Score("street")));
         }
 
         [Test]
         public void shouldScore22ForQuirky() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(22, Is.EqualTo(scrabble.score("quirky")));
+            ILetterScoresProvider letterScoresProvider = new EnglishLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(22, Is.EqualTo(scrabble.Score("quirky")));
         }
 
         [Test]
         public void shouldScoreRussianLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(18, Is.EqualTo(scrabble.score("дврфъ")));
+            ILetterScoresProvider letterScoresProvider = new RussianLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(18, Is.EqualTo(scrabble.Score("дврфъ")));
         }
 
         [Test]
         public void shouldScoreGreekLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(20, Is.EqualTo(scrabble.score("φεψωλ")));
+            ILetterScoresProvider letterScoresProvider = new GreekLetterScoresProvider();
+            Scrabble scrabble = new Scrabble(letterScoresProvider);
+            Assert.That(20, Is.EqualTo(scrabble.Score("φεψωλ")));
         }
     }
 }

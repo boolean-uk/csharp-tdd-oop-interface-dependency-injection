@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class EnglishLetterScoresProvider : ILetterScoresProvider
     {
-        public Dictionary<Char, int> getLetterScores()
+        public Dictionary<char, int> GetLetterScores()
         {
-            Dictionary<Char, int> words = new Dictionary<Char, int>();
+            Dictionary<char, int> words = new Dictionary<char, int>();
             words.Add('a', 1);
             words.Add('b', 3);
-            words.Add('c', 3);
-            words.Add('d', 2);
+            words.Add('c', 4);
+            words.Add('d', 5);
             words.Add('e', 1);
             words.Add('f', 4);
             words.Add('g', 2);
