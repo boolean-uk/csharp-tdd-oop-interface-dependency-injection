@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using tdd_oop_interface_dependency_injection.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Test
@@ -8,6 +8,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         public class ScrabbleTest {
         [Test]
         public void shouldGive0ForEmptyWords() {
+
             englishAlphabet e = new englishAlphabet();
             Scrabble scrabble = new Scrabble(e);
             Assert.AreEqual(0, scrabble.score(""));
@@ -29,6 +30,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
         [Test]
         public void shouldScore4ForF() {
+
             englishAlphabet e = new englishAlphabet();
             Scrabble scrabble = new Scrabble(e);
             Assert.AreEqual(4, scrabble.score("f"));
@@ -36,6 +38,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
         [Test]
         public void shouldScore6ForStreet() {
+
             englishAlphabet e = new englishAlphabet();
             Scrabble scrabble = new Scrabble(e);
             Assert.AreEqual(6, scrabble.score("street"));
@@ -43,6 +46,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
         [Test]
         public void shouldScore22ForQuirky() {
+
             englishAlphabet e = new englishAlphabet();
             Scrabble scrabble = new Scrabble(e);
             Assert.AreEqual(22, scrabble.score("quirky"));
@@ -50,6 +54,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
         [Test]
         public void shouldScoreRussianLetters() {
+
             russianAlphabet r = new russianAlphabet();
             Scrabble scrabble = new Scrabble(r);
             Assert.AreEqual(18, scrabble.score("дврфъ"));
@@ -57,6 +62,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
         [Test]
         public void shouldScoreGreekLetters() {
+
             greekAlphabet g = new greekAlphabet();
             Scrabble scrabble = new Scrabble(g);
             Assert.AreEqual(20, scrabble.score("φεψωλ"));
