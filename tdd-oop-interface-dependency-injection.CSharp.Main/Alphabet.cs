@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_internal_interface.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class Alphabet : IAlphabet
     {
         public Dictionary<Char, int> getLetterScores()
         {
