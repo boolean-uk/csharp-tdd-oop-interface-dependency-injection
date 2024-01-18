@@ -14,29 +14,42 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
         private List<IAlphabet> alphabets = new List<IAlphabet>();
 
 
-		public Scrabble()
+		public Scrabble(IAlphabet a)
         {
-	        alphabets.Add(new AlphabetEng());
-	        alphabets.Add(new AlphabetRus());
-	        alphabets.Add(new AlphabetGreek());
+            //Task asks not to instantiate classes here! oops!
+	        //alphabets.Add(new AlphabetEng());
+	        //alphabets.Add(new AlphabetRus());
+	        //alphabets.Add(new AlphabetGreek());
+
+	        letterScores = a.getLetterScores();
         }
 
         public int score(String word) 
         {
             int total = 0;
 
-            foreach (var ch in word.ToCharArray())
+            foreach (char ch in word.ToCharArray())
             {
-	            foreach (var alphabet in alphabets)
+	            if (this.letterScores.ContainsKey(ch))
 	            {
-                    letterScores = alphabet.getLetterScores();
-                    if (letterScores.ContainsKey(ch))
-                    {
-                        total += letterScores[ch];
-                        break;
-                    }
+		            int score = this.letterScores[ch];
+		            total += score;
 	            }
             }
+
+            //Old Attempt
+			//foreach (var ch in word.ToCharArray())
+   //         {
+	  //          foreach (var alphabet in alphabets)
+	  //          {
+   //                 letterScores = alphabet.getLetterScores();
+   //                 if (letterScores.ContainsKey(ch))
+   //                 {
+   //                     total += letterScores[ch];
+   //                     break;
+   //                 }
+	  //          }
+   //         }
 
             return total;
         }
