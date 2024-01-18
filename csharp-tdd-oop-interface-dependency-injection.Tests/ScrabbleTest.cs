@@ -10,9 +10,9 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         [SuppressMessage("Assertion", "NUnit2007:The actual value should not be a constant", Justification = "This looks fine")]
     public class ScrabbleTest {
 
-        Alphabet latin = new LatinAlphabet();
-        Alphabet greek = new GreekAlphabet();
-        Alphabet russian = new RussianAlphabet();
+        IAlphabet latin = new LatinAlphabet();
+        IAlphabet greek = new GreekAlphabet();
+        IAlphabet russian = new RussianAlphabet();
 
         [Test]
         public void shouldGive0ForEmptyWords() {

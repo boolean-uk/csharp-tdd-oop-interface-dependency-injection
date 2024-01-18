@@ -8,7 +8,7 @@ using tdd_oop_interface_dependency_injection.CSharp.Main;
 namespace Alphabets
 
 {
-    public class RussianAlphabet : Alphabet
+    public class RussianAlphabet : IAlphabet
     {
         public Dictionary<char, int> getLetterScores()
         {
