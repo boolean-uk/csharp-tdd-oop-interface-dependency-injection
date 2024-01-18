@@ -9,8 +9,8 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
     public class Scrabble {
         private Dictionary<Char, int> letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
+        public Scrabble(Alphabet alphabet) {
+            Alphabet a = alphabet;
             this.letterScores = a.getLetterScores();
         }
 
