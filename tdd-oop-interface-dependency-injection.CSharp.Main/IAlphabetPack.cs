@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tdd_oop_interface_Dependency_injection.CSharp.Main
+namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public interface ILanguagePack
+    public interface IAlphabetPack
     {
         public Dictionary<Char, int> GetLetterScores();
     }

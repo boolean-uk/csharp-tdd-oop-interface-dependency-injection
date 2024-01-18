@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using tdd_oop_interface_Dependency_injection.CSharp.Main;
+using tdd_oop_interface_dependency_injection.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.Main
 {
-    public class AlphabetGreek : ILanguagePack
+    public class AlphabetGreek : IAlphabetPack
     {
         public Dictionary<Char, int> GetLetterScores()
         {
