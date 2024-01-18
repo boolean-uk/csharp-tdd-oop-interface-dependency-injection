@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Alphabets;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
@@ -10,8 +11,12 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
         private Dictionary<Char, int> letterScores;
 
         public Scrabble() {
-            Alphabet a = new Alphabet();
+            ILanguage a = new Alphabet();
+            ILanguage b = new Greek();
+            ILanguage c = new Russian();
             this.letterScores = a.getLetterScores();
+            this.letterScores = this.letterScores.Concat(b.getLetterScores()).ToDictionary(x => x.Key, x => x.Value);
+            this.letterScores = this.letterScores.Concat(c.getLetterScores()).ToDictionary(x => x.Key, x => x.Value);
         }
 
         public int score(String word) {
