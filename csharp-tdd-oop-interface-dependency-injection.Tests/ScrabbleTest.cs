@@ -9,49 +9,49 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         [Test]
         public void shouldGive0ForEmptyWords() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score(""), Is.EqualTo(0));
+            Assert.That(0, Is.EqualTo(scrabble.score("")));
         }
 
         [Test]
         public void shouldGive0ForWhiteSpace() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score("\n\r\t\b\f"), Is.EqualTo(0));
+            Assert.That(0, Is.EqualTo(scrabble.score("\n\r\t\b\f")));
         }
 
         [Test]
         public void shouldScore1ForA() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score("a"), Is.EqualTo(1));
+            Assert.That(1, Is.EqualTo(scrabble.score("a")));
         }
 
         [Test]
         public void shouldScore4ForF() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score("f"), Is.EqualTo(4));
+            Assert.That(4, Is.EqualTo(scrabble.score("f")));
         }
 
         [Test]
         public void shouldScore6ForStreet() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score("street"), Is.EqualTo(6));
+            Assert.That(6, Is.EqualTo(scrabble.score("street")));
         }
 
         [Test]
         public void shouldScore22ForQuirky() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score("quirky"), Is.EqualTo(22));
+            Assert.That(22, Is.EqualTo(scrabble.score("quirky")));
         }
 
         [Test]
         public void shouldScoreRussianLetters() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score("дврфъ"), Is.EqualTo(18));
+            Assert.That(18, Is.EqualTo(scrabble.score("дврфъ")));
         }
 
         [Test]
         public void shouldScoreGreekLetters() {
             Scrabble scrabble = new Scrabble();
-            Assert.That(scrabble.score("φεψωλ"), Is.EqualTo(20));
+            Assert.That(20, Is.EqualTo(scrabble.score("φεψωλ")));
         }
     }
 }
