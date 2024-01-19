@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
     public class Scrabble {
         private Dictionary<Char, int> letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
+        public Scrabble(IAlphabet a) {
             this.letterScores = a.getLetterScores();
         }
 
