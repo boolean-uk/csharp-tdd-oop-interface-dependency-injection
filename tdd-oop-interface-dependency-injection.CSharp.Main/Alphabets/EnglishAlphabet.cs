@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_interface_dependency_injection.CSharp.Main;
 
-namespace tdd_oop_interface_dependency_injection.CSharp.Main
+namespace tdd_oop_internal_interface_dependency_injection.CSharp.Main.Alphabets
 {
-    public class Alphabet 
+    //This EnglishAlpahbet class implements Alphabet for the English alphabet
+    public class EnglishAlphabet : IAlphabet
     {
-        public Dictionary<Char, int> getLetterScores()
+        public Dictionary<Char, int> GetLetterScores()
         {
             Dictionary<Char, int> words = new Dictionary<Char, int>();
             words.Add('a', 1);
@@ -39,5 +41,7 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             words.Add('z', 10);
             return words;
         }
+
     }
+
 }
