@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_internal_interface_dependency_injection.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
+
+
+    // Scrabble class: Uses dependency injection with IAlphabet interface
     public class Scrabble {
         private Dictionary<Char, int> letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        // Constructor accepts an IAlphabet interface
+       public Scrabble(IAlphabet ialphabet) {
+            this.letterScores = ialphabet.GetLetterScores();
         }
+
 
         public int score(String word) {
             int total = 0;
@@ -27,4 +32,8 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             return total;
         }
     }
+    
+    
+
+    
 }
