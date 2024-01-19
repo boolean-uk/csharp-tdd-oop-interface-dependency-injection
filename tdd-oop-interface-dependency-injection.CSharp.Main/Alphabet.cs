@@ -1,4 +1,5 @@
-﻿using System;
+﻿using interface_dependency_injection.CSharp.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class Alphabet : ILetterScores
     {
         public Dictionary<Char, int> getLetterScores()
         {
