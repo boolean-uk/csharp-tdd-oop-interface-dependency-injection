@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using tdd_oop_interface_dependency_injection.CSharp.Main;
+using tdd_oop_interface_dependency_injection.CSharp.Main.Alphabets;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Test
 {
@@ -8,50 +9,65 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
         public class ScrabbleTest {
         [Test]
         public void shouldGive0ForEmptyWords() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(0, Is.EqualTo(scrabble.score("")));
+            EnglishAlphabet english = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(english);
+            Assert.That(scrabble.score(""), Is.EqualTo(0));
         }
 
         [Test]
         public void shouldGive0ForWhiteSpace() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(0, Is.EqualTo(scrabble.score("\n\r\t\b\f")));
+            EnglishAlphabet english = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(english);
+            Assert.That(scrabble.score("\n\r\t\b\f"), Is.EqualTo(0));
         }
 
         [Test]
         public void shouldScore1ForA() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(1, Is.EqualTo(scrabble.score("a")));
+            EnglishAlphabet english = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(english);
+            Assert.That(scrabble.score("a"), Is.EqualTo(1));
         }
 
         [Test]
         public void shouldScore4ForF() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(4, Is.EqualTo(scrabble.score("f")));
+            EnglishAlphabet english = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(english);
+            Assert.That(scrabble.score("f"), Is.EqualTo(4));
         }
 
         [Test]
         public void shouldScore6ForStreet() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(6, Is.EqualTo(scrabble.score("street")));
+            EnglishAlphabet english = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(english);
+            Assert.That(scrabble.score("street"), Is.EqualTo(6));
         }
 
         [Test]
         public void shouldScore22ForQuirky() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(22, Is.EqualTo(scrabble.score("quirky")));
+            EnglishAlphabet english = new EnglishAlphabet();
+            Scrabble scrabble = new Scrabble(english);
+            Assert.That(scrabble.score("quirky"), Is.EqualTo(22));
         }
 
         [Test]
         public void shouldScoreRussianLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(18, Is.EqualTo(scrabble.score("дврфъ")));
+            RussianAlphabet russian = new RussianAlphabet();
+            Scrabble scrabble = new Scrabble(russian);
+            Assert.That(scrabble.score("дврфъ"), Is.EqualTo(18));
         }
 
         [Test]
         public void shouldScoreGreekLetters() {
-            Scrabble scrabble = new Scrabble();
-            Assert.That(20, Is.EqualTo(scrabble.score("φεψωλ")));
+            GreekAlphabet greek = new GreekAlphabet();
+            Scrabble scrabble = new Scrabble(greek);
+            Assert.That(scrabble.score("φεψωλ"), Is.EqualTo(20));
+        }
+        [Test]
+        public void shouldScore0GreekLetters()
+        {
+            GreekAlphabet greek = new GreekAlphabet();
+            Scrabble scrabble = new Scrabble(greek);
+            Assert.That(scrabble.score(""), Is.EqualTo(0));
         }
     }
 }
