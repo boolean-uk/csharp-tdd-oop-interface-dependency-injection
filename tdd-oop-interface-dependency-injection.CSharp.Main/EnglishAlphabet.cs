@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Alphabet 
+    public class EnglishAlphabeth : IAlphabet
     {
         public Dictionary<Char, int> getLetterScores()
         {
+
             Dictionary<Char, int> words = new Dictionary<Char, int>();
             words.Add('a', 1);
             words.Add('b', 3);
@@ -39,5 +40,6 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Main
             words.Add('z', 10);
             return words;
         }
+
     }
 }
