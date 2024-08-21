@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
-    public class Scrabble {
-        private Dictionary<Char, int> letterScores;
+    public class Scrabble<T> where T : ILanguage, new() {
+
+        private Dictionary<char, int> letterScores;
 
         public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+            T language  = new T();
+            this.letterScores = language.GetLetterScores();
         }
 
         public int score(String word) {
