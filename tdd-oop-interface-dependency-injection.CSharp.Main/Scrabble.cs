@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
     public class Scrabble {
+
+        IAlphabet _alphabet;
+
         private Dictionary<Char, int> letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        public Scrabble(IAlphabet alphabet) {
+            _alphabet = alphabet;
+            letterScores = alphabet.GetLettersScore();
         }
 
         public int score(String word) {
