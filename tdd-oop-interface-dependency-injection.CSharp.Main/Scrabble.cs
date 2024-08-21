@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Languages;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
     public class Scrabble {
+
+        private ILanguageScore _languageScore;
         private Dictionary<Char, int> letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        public Scrabble(ILanguageScore languageScore) {
+           _languageScore = languageScore;
+            this.letterScores = _languageScore.getLetterScores();
         }
 
         public int score(String word) {
