@@ -1,17 +1,31 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tdd_oop_interface_dependency_injection.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Main
 {
     public class Scrabble {
         private Dictionary<Char, int> letterScores;
 
-        public Scrabble() {
-            Alphabet a = new Alphabet();
-            this.letterScores = a.getLetterScores();
+        public Scrabble(IAlphabetPack alphabet)
+        {
+            letterScores = alphabet.GetLetterScores();
+        }
+
+        public Scrabble(List<IAlphabetPack> alphabetPacks)
+        {
+            foreach (var alphabet in alphabetPacks)
+            {
+                Dictionary<Char, int> alphabetPack = alphabet.GetLetterScores();
+                foreach (var kvp in alphabetPack)
+                {
+                    letterScores.Add(kvp.Key, kvp.Value);
+                }
+            }
         }
 
         public int score(String word) {

@@ -1,11 +1,14 @@
 ﻿using NUnit.Framework;
+using System.Runtime.InteropServices;
 using tdd_oop_interface_dependency_injection.CSharp.Main;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Test
 {
+    [TestFixture]
+    public class ScrabbleTest 
+    {
 
-        [TestFixture]
-        public class ScrabbleTest {
+
         [Test]
         public void shouldGive0ForEmptyWords() {
             Scrabble scrabble = new Scrabble();
@@ -53,5 +56,8 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
             Scrabble scrabble = new Scrabble();
             Assert.That(20, Is.EqualTo(scrabble.score("φεψωλ")));
         }
+
+
     }
 }
+
