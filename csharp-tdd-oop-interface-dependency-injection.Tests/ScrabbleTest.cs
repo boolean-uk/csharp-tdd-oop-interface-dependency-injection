@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Concrete;
+using NUnit.Framework;
 using tdd_oop_interface_dependency_injection.CSharp.Main;
+using tdd_oop_internal_interface_dependency_injection.CSharp.Main.Concrete;
+using tdd_oop_internal_interface_dependency_injection.CSharp.Main.Abstract;
 
 namespace tdd_oop_interface_dependency_injection.CSharp.Test
 {
@@ -44,13 +47,15 @@ namespace tdd_oop_interface_dependency_injection.CSharp.Test
 
         [Test]
         public void shouldScoreRussianLetters() {
-            Scrabble scrabble = new Scrabble();
+            IAlphabet a = new RussianAlphabet();
+            Scrabble scrabble = new Scrabble(a);
             Assert.That(18, Is.EqualTo(scrabble.score("дврфъ")));
         }
 
         [Test]
         public void shouldScoreGreekLetters() {
-            Scrabble scrabble = new Scrabble();
+            IAlphabet a = new GreekAlphabet();
+            Scrabble scrabble = new Scrabble(a);
             Assert.That(20, Is.EqualTo(scrabble.score("φεψωλ")));
         }
     }
